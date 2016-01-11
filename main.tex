@@ -1,0 +1,80 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage{import}
+\usepackage{projectstyle}
+
+\usepackage{makeidx}
+
+\usepackage{showidx} %It prints out all index entries in the left margin of the text.
+
+\makeindex
+
+%we have to define a bibliography style in the preamble
+\bibliographystyle{plain}
+
+\begin{document}
+
+
+%\glsaddall
+\import{./}{title.tex}
+
+\clearpage
+
+\import{./}{title2.tex}
+
+\clearpage
+
+\thispagestyle{empty}
+
+\tableofcontents
+
+\clearpage
+
+
+
+%hoofdstuk 2
+\setcounter{section}{1}
+\section{Applicatie laag}
+\import{hoofdstuk2sections/}{deel2-1.tex}
+
+%hoofdstuk 7
+%\setcounter{section}{6}
+%\newpage
+%\section{Multimedia netwerken}
+%\import{hoofdstuk7sections/}{deel7-1.tex}
+
+%toont source code als algoritme
+\begin{algorithm}[ht]
+%dit zorgt ervoor dat het in je list of algoritms wordt getoond
+\caption{See how easy it is to provide algorithms}
+\label{myFirstAlgorithm}
+\begin{algorithmic}
+\REQUIRE $a$
+\STATE $b = 0$
+\STATE $x \leftarrow 1:10$
+\FORALL{x}
+    \STATE $b = b+a$
+\ENDFOR
+\RETURN $b$
+\end{algorithmic}
+\end{algorithm}
+
+
+%Next we are adding the additional lists to the end of the document:
+
+\listofalgorithms
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+
+%\printglossaries
+\printglossary[title=Termen,toctitle=Lijst van termen]
+
+\printglossary[type=\acronymtype]
+
+
+\clearpage
+%\import{./}{bibliography.tex}
+
+\end{document}
